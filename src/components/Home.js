@@ -29,7 +29,7 @@ export default function Home(){
      useEffect(()=>{
          const displayMoreImages = async()=>{
             try{
-            const req= await fetch(`https://api.nasa.gov/planetary/apod?api_key=my7yWrckDk4jzhimEiJ06YOmoOXf9fEZbvyp2O75&count=${countImage}`);
+            const req= await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY }&count=${countImage}`);
            // console.log(req)
             const res = await req.json();
             //console.log(res)
