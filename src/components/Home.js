@@ -10,11 +10,11 @@ export default function Home(){
     const [loadMore,setLoadMore] = useState(false);
     const [newImageData, setNewImageData]= useState('');
     const [countImage, setCountImage] = useState(1);
-    
+  
     useEffect(()=>{
         const displayImage = async()=>{
             try{
-            const req= await fetch(`https://api.nasa.gov/planetary/apod?api_key=my7yWrckDk4jzhimEiJ06YOmoOXf9fEZbvyp2O75`);
+            const req= await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY }`);
             const res = await req.json();
             console.log(data)
 
