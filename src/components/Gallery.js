@@ -29,7 +29,7 @@ export default function Gallery(){
     },[]);
     
     const loadMoreImges =()=>{
-        setLoadMore(prev=> prev +9)
+        setLoadMore(prev => prev + 9)
     }
     const handleImage =(key)=>{
         setImageIndex(key)
@@ -46,7 +46,10 @@ export default function Gallery(){
             <div className='largeImageContainer' >
                <FontAwesomeIcon icon={faCircleXmark} className='closeBtn' onClick={()=>closeModel()}/>
                <div className='fullScreenImage'>
-                <img src={resources[imageIndex].hdurl} className='rounded object-cover w-3/4 h-3/4 max-w-full max-h-full'></img>
+                <img src={resources[imageIndex].hdurl} 
+                     alt={resources[imageIndex].title}
+                     className='rounded object-cover w-3/4 h-3/4 max-w-full max-h-full'>
+                     </img>
                </div>
             </div>}
             <div className='container'>
