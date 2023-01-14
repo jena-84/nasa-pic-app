@@ -48,7 +48,7 @@ export default function Gallery(){
                <div className='fullScreenImage'>
                 <img src={resources[imageIndex].hdurl} 
                      alt={resources[imageIndex].title}
-                     className='rounded object-cover w-3/4 h-3/4 max-w-full max-h-full'>
+                     className='rounded object-cover w-3/4 h-3/4 max-w-full max-h-full '>
                      </img>
                </div>
             </div>}
@@ -56,11 +56,11 @@ export default function Gallery(){
                 {resources.slice(0,loadMore).map((resource, key)=>{return(
                   <div className='flex flex-col items-center justify-center p-0 cursor-pointer' key={key} onClick={()=>handleImage(key)}>
                   <img src ={resource.hdurl} alt={resource.title} className='item-a rounded object-cover w-80 max-w-full max-h-full h-80 '></img>
-                   <div className='p-2 text-white text-base text-center font-semibold mb-14'>{resource.title}</div>
+                   <div className='p-2 text-white text-lg text-center font-semibold mb-14'>{resource.title}</div>
                 </div>
                 )})}
             </div>
-           <button className='btn text-white text-lg border border-solid border-blue-400 rounded-full bg-blue-400 w-1/4 p-2 mt-2 mb-10' 
+           <button className='btn text-white text-lg border border-solid border-blue-400 rounded-full bg-blue-400 w-1/5 p-2 mt-2 mb-10' 
             onClick={loadMoreImges}>Load More</button> 
       </div>
     )

@@ -2,7 +2,13 @@
 import { useEffect,useState  } from "react";
 import { AdvancedImage } from '@cloudinary/react'
 import { Cloudinary } from '@cloudinary/url-gen';
-export default function Download(){
+import {
+    lazyload,
+    responsive,
+    placeholder
+  } from "@cloudinary/react";
+
+export default function Upload(){
    
     const [fileInput, setFileInput] = useState('');
     const [previewSource,setPreviewSource] = useState();
@@ -72,31 +78,34 @@ export default function Download(){
         }
     });
  return(
-      <div className="flex flex-col items-center justify-center border border-solid border-blue-400 bg-yellow-50 w-6/12 p-20 h-full" style={{marginLeft:'25%'}}>
-        <h1>Upload the image you like to save</h1>
-         <form onSubmit={handleSubmit} className="max-w-2xl px-10 py-12 h-full  border border-solid border-blue-400 ">
+      <div className="flex flex-col items-center justify-center border border-solid border-blue-400 bg-yellow-50 w-9/12 h-full ml-60">
+        <h1 className="m-5 font-bold text-black-500 text-center text-gray-600 tracking-wide text-3xl">Upload image and save</h1>
+        
+        <div className="cloud-container">
+        {imagePublicId && 
+        imagePublicId.map((imageId,key)=>{return <AdvancedImage
+                                                 key={key}
+                                                 cldImg={myCloud.image(imageId)}
+                                                 style={{width: '300px' , height:'300px', borderRadius:'10px',boxShadow:'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}
+                                                 plugins={[lazyload(),responsive(), placeholder()]}
+                                                 />  
+                                               })} 
+        </div>
+        <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center m-8">
            <input 
             type="file"
             onChange={handleFileInput} 
             value={fileInput} 
             name='image'/>
-          <button type="submit" className='text-white border border-solid border-blue-400 rounded-full bg-blue-400 w-1/4 p-2 mt-2 mb-10'>Submit</button>
+          <button type="submit" className='text-white text-base tracking-wide font-normal rounded-full bg-blue-400 w-1/3 p-2 m-5'>Upload</button>
          </form>
         {previewSource && (
             <img src={previewSource}
                  alt='uploaded'
-                 style={{height:'200px'}}>
+                 style={{height:'250px'}}>
             </img>
          )}
-        {imagePublicId && 
 
-        imagePublicId.map((imageId,key)=>{return <AdvancedImage
-                                                 key={key}
-                                                 cldImg={myCloud.image(imageId)}
-                                                 />  
-                                                })} 
-    
-        
     </div>
     )
 }

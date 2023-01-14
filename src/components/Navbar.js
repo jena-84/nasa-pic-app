@@ -12,7 +12,7 @@ export default function Navbar(){
   const navigationLinks = [
     {name: 'Home' , path: '/'},
     {name: 'Gallery' , path: '/gallery'},
-    {name: 'Download' , path: '/download'},
+    {name: 'Upload' , path: '/upload'},
     {name: 'About' , path: '/about'}];
       
     const [open, setOpen] = useState(false);

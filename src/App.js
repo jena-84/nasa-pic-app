@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home  from './components/Home';
 import About from './components/About';
-import Download from './components/Download';
+import Upload from './components/Upload';
 import Gallery from './components/Gallery';
 
 
@@ -17,7 +17,7 @@ function App() {
           <Switch>
             <Route exact path='/'><Home/></Route>
              <Route path='/gallery'><Gallery/></Route>
-             <Route path='/download'> <Download/> </Route>
+             <Route path='/upload'> <Upload/> </Route>
              <Route path='/about'><About/></Route>
          </Switch>
         {/* </div> */}
